@@ -1,0 +1,33 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-3" [routerLink]="['/clientes']">Volver</button>
+
+        <form>
+   
+            <div class="fom-group">
+                <label for="descripcion">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="nombre"
+                [(ngModel)]="cliente.nombre">
+                <div class="alert alert-danger" *ngIf="error?.nombre">
+                    {{error.nombre}}
+                </div>
+            </div>
+            <div class="fom-group">
+                <label for="precio">correo</label>
+                <input type="correo" name="correo" class="form-control"  id="correo"
+                [(ngModel)]="cliente.correo">
+                <div class="alert alert-danger" *ngIf="error?.correo">
+                    {{error.correo}}
+                </div>
+            </div>
+            <br>
+            <div class="fom-group">
+                <button type="button"  class="btn btn-primary" 
+                    (click)="cliente.id? editar(): crear()">
+                    {{cliente.id? 'Editar': 'Crear'}}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
